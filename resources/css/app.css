@@ -1,0 +1,146 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source "../**/*.vue";
+
+@theme {
+    --color-primary-fixed: #ffdad9;
+    --color-on-primary-container: #5d3a3b;
+    --color-surface-container-highest: #ffdbd0;
+    --color-tertiary-fixed: #eee0d3;
+    --color-on-error: #ffffff;
+    --color-surface-container-lowest: #ffffff;
+    --color-on-secondary: #ffffff;
+    --color-on-tertiary-fixed: #211a13;
+    --color-secondary-container: #f8d8d8;
+    --color-surface-dim: #fbd1c4;
+    --color-on-primary-fixed-variant: #603d3e;
+    --color-tertiary-container: #bbaea2;
+    --color-on-primary-fixed: #2f1314;
+    --color-error: #ba1a1a;
+    --color-surface-tint: #7b5455;
+    --color-on-surface: #2c160e;
+    --color-on-tertiary: #ffffff;
+    --color-outline: #827473;
+    --color-inverse-on-surface: #ffede8;
+    --color-secondary: #705959;
+    --color-on-secondary-fixed-variant: #574142;
+    --color-on-secondary-container: #755d5d;
+    --color-background: #fff8f6;
+    --color-secondary-fixed: #fbdbdb;
+    --color-on-background: #2c160e;
+    --color-primary: #7b5455;
+    --color-surface-container-high: #ffe2da;
+    --color-surface-container: #ffe9e3;
+    --color-primary-fixed-dim: #ecbbba;
+    --color-secondary-fixed-dim: #debfbf;
+    --color-on-secondary-fixed: #281717;
+    --color-outline-variant: #d4c2c2;
+    --color-on-error-container: #93000a;
+    --color-surface: #fff8f6;
+    --color-primary-container: #d4a5a5;
+    --color-inverse-primary: #ecbbba;
+    --color-on-surface-variant: #504444;
+    --color-on-tertiary-container: #4a4238;
+    --color-inverse-surface: #442a22;
+    --color-surface-variant: #ffdbd0;
+    --color-error-container: #ffdad6;
+    --color-on-tertiary-fixed-variant: #4e453c;
+    --color-on-primary: #ffffff;
+    --color-tertiary: #665d53;
+    --color-tertiary-fixed-dim: #d1c4b8;
+    --color-surface-container-low: #fff1ed;
+    --color-surface-bright: #fff8f6;
+
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+
+    --spacing-gutter: 24px;
+    --spacing-section-padding: 80px;
+    --spacing-container-max: 1200px;
+    --spacing-margin-mobile: 20px;
+    --spacing-unit: 8px;
+
+    --font-headline-sm: Playfair Display;
+    --font-label-lg: Montserrat;
+    --font-headline-lg: Playfair Display;
+    --font-headline-lg-mobile: Playfair Display;
+    --font-display-lg: Playfair Display;
+    --font-body-sm: Montserrat;
+    --font-headline-md: Playfair Display;
+    --font-body-lg: Montserrat;
+    --font-body-md: Montserrat;
+}
+
+@layer utilities {
+    .text-headline-sm {
+        font-size: 24px;
+        line-height: 1.4;
+        font-weight: 600;
+    }
+    .text-label-lg {
+        font-size: 14px;
+        line-height: 1.2;
+        letter-spacing: 0.1em;
+        font-weight: 600;
+    }
+    .text-headline-lg {
+        font-size: 40px;
+        line-height: 1.2;
+        font-weight: 600;
+    }
+    .text-headline-lg-mobile {
+        font-size: 32px;
+        line-height: 1.2;
+        font-weight: 600;
+    }
+    .text-display-lg {
+        font-size: 56px;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        font-weight: 700;
+    }
+    .text-body-sm {
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: 400;
+    }
+    .text-headline-md {
+        font-size: 32px;
+        line-height: 1.3;
+        font-weight: 600;
+    }
+    .text-body-lg {
+        font-size: 18px;
+        line-height: 1.6;
+        font-weight: 400;
+    }
+    .text-body-md {
+        font-size: 16px;
+        line-height: 1.6;
+        font-weight: 400;
+    }
+}
+
+@layer base {
+    .ambient-shadow {
+        box-shadow: 0 8px 32px -8px rgba(93, 64, 55, 0.08);
+    }
+    /* Custom Scrollbar for elegant feel */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #fff8f6; 
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #d4c2c2; 
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #7b5455; 
+    }
+}

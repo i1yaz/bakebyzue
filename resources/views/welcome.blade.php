@@ -12,7 +12,7 @@
         <div class="flex flex-col items-center text-center max-w-3xl mx-auto z-10 space-y-8">
             <div class="w-64 md:w-80 h-auto mb-4">
                 <img alt="Zue Home Baked Cakes Logo" class="w-full h-auto object-contain"
-                    src="{{ asset('assets/logo/zue-round.jpeg') }}" />
+                    src="{{ cloud_asset('assets/logo/zue-round.jpeg') }}" />
             </div>
 
             <h1 class="font-display-lg text-display-lg text-primary max-w-2xl mx-auto leading-tight italic">

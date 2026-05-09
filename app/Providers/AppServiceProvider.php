@@ -20,5 +20,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         config(['livewire.temporary_file_upload.disk' => 'local']);
+
+        \Illuminate\Support\Facades\View::composer('*', function ($view) {
+            $whatsappNumber = \App\Models\SiteSetting::where('key', 'whatsapp_number')->value('value') ?? '+923461042344';
+            $whatsappClean = preg_replace('/[^0-9]/', '', $whatsappNumber);
+            $view->with('whatsappLink', "https://wa.me/{$whatsappClean}");
+        });
     }
 }

@@ -29,8 +29,13 @@
                     href="#collections">
                     Explore Cakes
                 </a>
+                @php
+                    $whatsappNumber = $settings['whatsapp_number'] ?? '+923461042344';
+                    $whatsappClean = preg_replace('/[^0-9]/', '', $whatsappNumber);
+                    $whatsappLink = "https://wa.me/{$whatsappClean}";
+                @endphp
                 <a class="inline-flex justify-center items-center px-8 py-4 bg-surface border-2 border-outline-variant text-primary rounded-full font-label-lg text-label-lg uppercase tracking-wider hover:bg-surface-container transition-all scale-100 hover:scale-105"
-                    href="{{ $settings['whatsapp_link'] ?? '#inquiry' }}" target="_blank">
+                    href="{{ $whatsappLink }}" target="_blank">
                     Order on WhatsApp
                 </a>
             </div>

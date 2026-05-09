@@ -94,12 +94,12 @@
                                 @endforeach
                             @endif
                         </ul>
-                        <div class="pt-4">
+                        {{-- <div class="pt-4">
                             <a class="inline-flex items-center gap-2 font-label-lg text-label-lg text-primary hover:text-surface-tint border-b-2 border-primary pb-1 transition-colors"
                                 href="#inquiry">
                                 Request this design <span class="material-symbols-outlined text-sm">arrow_forward</span>
                             </a>
-                        </div>
+                        </div> --}}
                     </div>
 
                     <div class="lg:col-span-7 grid grid-cols-2 gap-4 h-[600px]">

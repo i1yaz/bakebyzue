@@ -17,13 +17,13 @@ class TestimonialForm
             TextInput::make('customer_name')->required(),
             Textarea::make('review')->required(),
             TextInput::make('rating')->numeric()->default(5),
-            SpatieMediaLibraryFileUpload::make('customer_image')->collection('customer_image'),
             Select::make('product_id')
                 ->relationship('product', 'title')
                 ->searchable()
                 ->preload()
                 ->helperText('Select a product to link this testimonial to. Leave empty for a general review.')
                 ->columnSpanFull(),
+            SpatieMediaLibraryFileUpload::make('customer_image')->collection('customer_image'),
             Toggle::make('featured'),
         ]);
     }

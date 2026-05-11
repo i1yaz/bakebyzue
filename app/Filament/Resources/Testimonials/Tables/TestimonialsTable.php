@@ -22,6 +22,6 @@ class TestimonialsTable
                 ->searchable(),
             TextColumn::make('rating'),
             ToggleColumn::make('featured'),
-        ])->filters([])->actions([EditAction::make(), DeleteAction::make()]);
+        ])->filters([])->recordActions([EditAction::make(), DeleteAction::make()]);
     }
 }

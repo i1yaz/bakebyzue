@@ -155,7 +155,7 @@
         @endif
 
         <!-- Final CTA -->
-        <section class="py-20 text-center bg-surface-container-low border-t border-outline-variant">
+        <section class="py-20 text-center bg-surface-container-low border-t border-outline-variant curved-section-top">
             <div class="max-w-2xl mx-auto px-margin-mobile space-y-8">
                 <h2 class="font-display-lg text-display-lg text-primary">Let's Create Your Masterpiece</h2>
                 <p class="font-body-lg text-body-lg text-on-surface-variant">

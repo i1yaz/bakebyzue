@@ -129,6 +129,19 @@
     .ambient-shadow {
         box-shadow: 0 8px 32px -8px rgba(93, 64, 55, 0.08);
     }
+    .lace-divider {
+        background-image: radial-gradient(circle at 10px 10px, transparent 8px, #d4c2c2 8px, #d4c2c2 10px, transparent 10px);
+        background-size: 20px 20px;
+        height: 10px;
+        width: 100%;
+        opacity: 0.3;
+    }
+    .curved-arc-bottom {
+        clip-path: ellipse(70% 100% at 50% 0%);
+    }
+    .curved-arc-top {
+        clip-path: ellipse(70% 100% at 50% 100%);
+    }
     /* Custom Scrollbar for elegant feel */
     ::-webkit-scrollbar {
         width: 8px;

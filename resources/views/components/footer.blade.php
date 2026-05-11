@@ -7,7 +7,9 @@
         </div>
         <ul class="flex flex-wrap justify-center gap-6">
             <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary underline decoration-dotted opacity-80 hover:opacity-100 transition-opacity" href="{{ url('/') }}#inquiry">Contact Us</a></li>
-            <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary underline decoration-dotted opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy Policy</a></li>
+            <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary underline decoration-dotted opacity-80 hover:opacity-100 transition-opacity" href="{{ route('privacy') }}">Privacy Policy</a></li>
+            <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary underline decoration-dotted opacity-80 hover:opacity-100 transition-opacity" href="{{ route('terms') }}">Terms & Conditions</a></li>
+
             @php
                 $instagramLink = \App\Models\SiteSetting::where('key', 'instagram_link')->value('value') ?? 'https://www.instagram.com/bakebyzue';
             @endphp

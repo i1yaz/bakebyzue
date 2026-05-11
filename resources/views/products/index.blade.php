@@ -58,31 +58,16 @@
                                     {{ $product->title }}
                                 </div>
                             @endif
-                            <div class="absolute top-4 right-4 bg-primary text-on-primary text-[10px] font-label-lg uppercase px-3 py-1 rounded-full">
-                                Handcrafted
-                            </div>
                         </div>
                         <div class="px-2">
-                            <div class="flex justify-between items-start mb-2">
+                            <div class="mb-2">
                                 <h3 class="font-headline-sm text-headline-sm text-primary">
                                     {{ $product->title }}
                                 </h3>
-                                <span class="text-primary-container">
-                                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">auto_awesome</span>
-                                </span>
                             </div>
                             <p class="font-body-sm text-body-sm text-on-surface-variant mb-4 line-clamp-2 h-10">
                                 {{ $product->short_description }}
                             </p>
-                            @if($product->flavor_tags)
-                                <div class="flex flex-wrap gap-2 mb-6">
-                                    @foreach($product->flavor_tags as $tag)
-                                        <span class="bg-secondary-container text-on-secondary-container text-[11px] font-label-lg px-2 py-1 rounded-full">
-                                            {{ $tag }}
-                                        </span>
-                                    @endforeach
-                                </div>
-                            @endif
                             <a href="{{ $whatsappLink }}" target="_blank"
                                 class="block w-full py-4 rounded-full bg-primary text-on-primary font-label-lg text-label-lg uppercase tracking-widest text-center transition-all hover:bg-on-primary-fixed-variant active:scale-95">
                                 Request This Design

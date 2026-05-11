@@ -22,7 +22,7 @@ class TestimonialForm
                 ->searchable()
                 ->preload()
                 ->helperText('Select a product to link this testimonial to. Leave empty for a general review.'),
-            SpatieMediaLibraryFileUpload::make('customer_image')->collection('customer_image'),
+            SpatieMediaLibraryFileUpload::make('customer_image')->collection('customer_image')->columnSpanFull(),
             Toggle::make('featured'),
         ]);
     }

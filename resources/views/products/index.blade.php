@@ -47,7 +47,7 @@
         @if($products->count() > 0)
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                 @foreach($products as $product)
-                    <div class="group bg-surface-container-low rounded-[32px] border border-outline-variant p-4 transition-all duration-500 hover:-translate-y-2 ambient-shadow">
+                    <a href="{{ route('product.show', $product) }}" class="group bg-surface-container-low rounded-[32px] border border-outline-variant p-4 transition-all duration-500 hover:-translate-y-2 ambient-shadow block">
                         <div class="relative overflow-hidden rounded-[24px] aspect-square mb-6">
                             @if($product->getFirstMediaUrl('featured_image'))
                                 <img alt="{{ $product->title }}"
@@ -68,12 +68,11 @@
                             <p class="font-body-sm text-body-sm text-on-surface-variant mb-4 line-clamp-2 h-10">
                                 {{ $product->short_description }}
                             </p>
-                            <a href="{{ $whatsappLink }}" target="_blank"
-                                class="block w-full py-4 rounded-full bg-primary text-on-primary font-label-lg text-label-lg uppercase tracking-widest text-center transition-all hover:bg-on-primary-fixed-variant active:scale-95">
+                            <div class="block w-full py-4 rounded-full bg-primary text-on-primary font-label-lg text-label-lg uppercase tracking-widest text-center transition-all hover:bg-on-primary-fixed-variant active:scale-95">
                                 Request This Design
-                            </a>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 @endforeach
             </div>
         @else

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Testimonial;
 use Illuminate\View\View;
 
 class ProductController extends Controller
@@ -33,6 +34,30 @@ class ProductController extends Controller
             'categories' => $categories,
             'products' => $products,
             'activeCategory' => $activeCategory,
+        ]);
+    }
+
+    /**
+     * Display the specified product.
+     */
+    public function show(Product $product): View
+    {
+        $product->load(['media', 'category']);
+
+        $relatedProducts = Product::where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
+            ->with('media')
+            ->limit(2)
+            ->get();
+
+        $testimonial = Testimonial::where('featured', true)
+            ->inRandomOrder()
+            ->first();
+
+        return view('products.show', [
+            'product' => $product,
+            'relatedProducts' => $relatedProducts,
+            'testimonial' => $testimonial,
         ]);
     }
 }

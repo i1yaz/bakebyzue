@@ -6,8 +6,6 @@
     </div>
     <ul class="hidden md:flex items-center gap-8">
         <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300"
-                href="{{ url('/') }}#gallery">Gallery</a></li>
-        <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300"
                 href="{{ url('/') }}#collections">Collections</a></li>
         <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300"
                 href="{{ url('/') }}#story">Our Story</a></li>

@@ -61,10 +61,10 @@
                             class="flex-1 px-8 py-5 bg-primary text-on-primary rounded-full font-label-lg text-label-lg flex items-center justify-center gap-2 transition-transform duration-200 active:scale-95 hover:bg-surface-tint soft-shadow text-center">
                             Inquire via WhatsApp
                         </a>
-                        <a href="{{ $whatsappLink }}&text={{ urlencode('I would like to request customization for ' . $product->title) }}" target="_blank"
+                        {{-- <a href="{{ $whatsappLink }}&text={{ urlencode('I would like to request customization for ' . $product->title) }}" target="_blank"
                             class="flex-1 px-8 py-5 border-2 border-primary text-primary rounded-full font-label-lg text-label-lg flex items-center justify-center gap-2 transition-transform duration-200 active:scale-95 hover:bg-primary-fixed/20 text-center">
                             Request Customization
-                        </a>
+                        </a> --}}
                     </div>
                 </div>
             </div>

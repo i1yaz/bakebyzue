@@ -1,5 +1,8 @@
-<x-layouts.app>
-    <x-slot name="title">ZUE | {{ $product->title }}</x-slot>
+<x-layouts.app 
+    :meta-title="$product->title" 
+    :meta-description="$product->short_description" 
+    :meta-image="$product->getFirstMediaUrl('featured_image', 'webp')"
+>
 
     @php
         $whatsappLink = whatsapp_link("Hi ZUE! I'm interested in '{$product->title}'. Could you tell me more?");

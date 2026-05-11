@@ -1,10 +1,42 @@
+@props([
+    'metaTitle' => null,
+    'metaDescription' => null,
+    'metaImage' => null,
+    'metaType' => 'website',
+])
+
+@php
+    $finalTitle = ($metaTitle ? $metaTitle . ' | ' : '') . 'ZUE Home Baked Cakes';
+    $finalDescription = $metaDescription ?? "Experience the warmth of artisanal baking at ZUE. Handcrafted cakes and desserts made with love for your special moments.";
+    $finalImage = $metaImage ?? cloud_asset('assets/logo/zue-round.jpeg');
+@endphp
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>{{ $title ?? 'ZUE Home Baked Cakes' }}</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>{{ $finalTitle }}</title>
+    <meta name="title" content="{{ $finalTitle }}">
+    <meta name="description" content="{{ $finalDescription }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{{ $metaType }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="{{ $finalTitle }}">
+    <meta property="og:description" content="{{ $finalDescription }}">
+    <meta property="og:image" content="{{ $finalImage }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:title" content="{{ $finalTitle }}">
+    <meta property="twitter:description" content="{{ $finalDescription }}">
+    <meta property="twitter:image" content="{{ $finalImage }}">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />

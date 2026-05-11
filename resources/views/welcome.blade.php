@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-layouts.app meta-description="Handcrafted artisanal cakes and desserts, made with love in our home bakery. Explore our collections and let us create something beautiful for your next celebration.">
     <!-- Hero Section -->
     <header
         class="relative min-h-[90vh] flex flex-col items-center justify-center px-margin-mobile md:px-gutter pt-20 overflow-hidden">

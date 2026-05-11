@@ -1,5 +1,10 @@
-<x-layouts.app>
-    <x-slot name="title">Our Collections | ZUE Artisanal Pâtisserie</x-slot>
+@php
+    $metaTitle = $activeCategory ? $activeCategory->name : 'Our Collections';
+    $metaDescription = ($activeCategory && $activeCategory->description) ? $activeCategory->description : 'Browse our artisanal collection of handcrafted cakes, cupcakes, and dessert boxes.';
+    $metaImage = ($activeCategory && $activeCategory->getFirstMediaUrl('image')) ? $activeCategory->getFirstMediaUrl('image', 'webp') : null;
+@endphp
+
+<x-layouts.app :meta-title="$metaTitle" :meta-description="$metaDescription" :meta-image="$metaImage">
 
     <!-- Hero Section -->
     <section class="relative h-[614px] flex items-center justify-center overflow-hidden curved-section-bottom bg-surface-container-low">

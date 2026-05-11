@@ -176,7 +176,7 @@
                     </div>
                 @endif
 
-                <form class="space-y-6" action="{{ route('inquiry.store') }}" method="POST">
+                <form class="space-y-6" action="{{ route('inquiry.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="flex flex-col">
@@ -215,6 +215,17 @@
                                 <option>Other</option>
                             </select>
                         </div>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="font-label-lg text-label-lg text-on-surface-variant mb-2 uppercase"
+                            for="image">Inspiration Picture (Max 10MB)</label>
+                        <input
+                            class="bg-transparent border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 font-body-md text-on-surface transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary-container file:text-on-primary-container hover:file:bg-secondary-container"
+                            id="image" name="image" type="file" accept="image/*" />
+                        @error('image')
+                            <p class="text-error text-body-sm mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="flex flex-col">

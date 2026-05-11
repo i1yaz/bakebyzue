@@ -15,7 +15,7 @@
                         @if($product->getFirstMediaUrl('featured_image'))
                             <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                  alt="{{ $product->title }}"
-                                 src="{{ $product->getFirstMediaUrl('featured_image') }}" />
+                                 src="{{ $product->getFirstMediaUrl('featured_image', 'webp') }}" />
                         @else
                             <div class="w-full h-full flex items-center justify-center bg-surface-variant text-primary font-headline-sm">
                                 {{ $product->title }}
@@ -23,13 +23,13 @@
                         @endif
                     </div>
                     @php
-                        $secondaryImage = $product->getMedia('gallery')->first();
+                        $secondaryImage = $product->getMedia('gallery_images')->first();
                     @endphp
                     @if($secondaryImage)
                         <div class="absolute -bottom-6 -right-6 hidden lg:block w-48 h-48 rounded-full overflow-hidden border-4 border-surface soft-shadow">
                             <img class="w-full h-full object-cover"
                                  alt="{{ $product->title }} interior"
-                                 src="{{ $secondaryImage->getUrl() }}" />
+                                 src="{{ $secondaryImage->getUrl('webp') }}" />
                         </div>
                     @endif
                 </div>
@@ -79,13 +79,13 @@
                             {!! nl2br(e($product->full_description)) !!}
                         </div>
                         @php
-                            $storyImage = $product->getMedia('gallery')->skip(1)->first();
+                            $storyImage = $product->getMedia('gallery_images')->skip(1)->first();
                         @endphp
                         @if($storyImage)
                             <div class="pt-8">
                                 <img class="w-full h-96 object-cover rounded-[40px] border border-outline-variant soft-shadow"
                                      alt="Artisanal process"
-                                     src="{{ $storyImage->getUrl() }}" />
+                                     src="{{ $storyImage->getUrl('webp') }}" />
                             </div>
                         @endif
                     </div>
@@ -137,7 +137,7 @@
                                     @if($related->getFirstMediaUrl('featured_image'))
                                         <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                              alt="{{ $related->title }}"
-                                             src="{{ $related->getFirstMediaUrl('featured_image') }}" />
+                                             src="{{ $related->getFirstMediaUrl('featured_image', 'webp') }}" />
                                     @else
                                         <div class="w-full h-full flex items-center justify-center bg-surface-variant text-primary font-headline-sm">
                                             {{ $related->title }}

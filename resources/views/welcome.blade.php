@@ -53,7 +53,7 @@
                         @if($category->getFirstMediaUrl('image'))
                             <img alt="{{ $category->name }}"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
-                                src="{{ $category->getFirstMediaUrl('image') }}" />
+                                src="{{ $category->getFirstMediaUrl('image', 'webp') }}" />
                         @else
                             <div class="w-full h-full flex items-center justify-center bg-surface-variant text-primary">No Image
                             </div>
@@ -108,14 +108,14 @@
                             class="col-span-2 md:col-span-1 h-full rounded-[32px] overflow-hidden border border-outline-variant ambient-shadow">
                             @if($signatureProduct->getFirstMediaUrl('featured_image'))
                                 <img alt="{{ $signatureProduct->title }}" class="w-full h-full object-cover"
-                                    src="{{ $signatureProduct->getFirstMediaUrl('featured_image') }}" />
+                                    src="{{ $signatureProduct->getFirstMediaUrl('featured_image', 'webp') }}" />
                             @endif
                         </div>
                         <div class="col-span-2 md:col-span-1 grid grid-rows-2 gap-4 h-full">
                             <div class="rounded-[32px] overflow-hidden border border-outline-variant ambient-shadow">
                                 @if($signatureProduct->getMedia('gallery_images')->count() > 0)
                                     <img alt="Details" class="w-full h-full object-cover"
-                                        src="{{ $signatureProduct->getMedia('gallery_images')->first()->getUrl() }}" />
+                                        src="{{ $signatureProduct->getMedia('gallery_images')->first()->getUrl('webp') }}" />
                                 @endif
                             </div>
                             <div

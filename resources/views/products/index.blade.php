@@ -52,7 +52,7 @@
                             @if($product->getFirstMediaUrl('featured_image'))
                                 <img alt="{{ $product->title }}"
                                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                    src="{{ $product->getFirstMediaUrl('featured_image') }}" />
+                                    src="{{ $product->getFirstMediaUrl('featured_image', 'webp') }}" />
                             @else
                                 <div class="w-full h-full flex items-center justify-center bg-surface-variant text-primary font-headline-sm">
                                     {{ $product->title }}

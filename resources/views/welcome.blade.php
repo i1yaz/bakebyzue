@@ -26,8 +26,8 @@
 
             <div class="flex flex-col sm:flex-row gap-4 mt-8 w-full sm:w-auto">
                 <a class="inline-flex justify-center items-center px-8 py-4 bg-primary text-on-primary rounded-full font-label-lg text-label-lg uppercase tracking-wider hover:bg-surface-tint transition-all scale-100 hover:scale-105 ambient-shadow"
-                    href="#collections">
-                    Explore Cakes
+                    href="{{ route('category.show') }}">
+                    Explore Collections
                 </a>
                 <a class="inline-flex justify-center items-center px-8 py-4 bg-surface border-2 border-outline-variant text-primary rounded-full font-label-lg text-label-lg uppercase tracking-wider hover:bg-surface-container transition-all scale-100 hover:scale-105"
                     href="{{ $whatsappLink }}" target="_blank">
@@ -47,7 +47,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             @foreach($categories as $category)
                 <a class="group block bg-surface rounded-[32px] border border-outline-variant overflow-hidden ambient-shadow transition-transform duration-300 hover:-translate-y-2"
-                    href="#">
+                    href="{{ route('category.show', $category) }}">
+
                     <div class="aspect-square overflow-hidden bg-surface-container-low">
                         @if($category->getFirstMediaUrl('image'))
                             <img alt="{{ $category->name }}"

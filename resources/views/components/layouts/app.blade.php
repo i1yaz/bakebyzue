@@ -21,6 +21,7 @@
     <link rel="manifest" href="{{ cloud_asset('assets/favicon/site.webmanifest') }}">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @stack('styles')
 </head>
 
 <body
@@ -34,6 +35,7 @@
 
     <x-footer />
 
+    @stack('scripts')
 </body>
 
 </html>

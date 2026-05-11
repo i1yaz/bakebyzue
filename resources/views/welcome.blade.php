@@ -188,14 +188,21 @@
                         </div>
                         <div class="flex flex-col">
                             <label class="font-label-lg text-label-lg text-on-surface-variant mb-2 uppercase"
+                                for="email">Email Address</label>
+                            <input
+                                class="bg-transparent border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 font-body-md text-on-surface placeholder-outline transition-colors"
+                                id="email" name="email" type="email" />
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex flex-col">
+                            <label class="font-label-lg text-label-lg text-on-surface-variant mb-2 uppercase"
                                 for="phone">Phone Number</label>
                             <input
                                 class="bg-transparent border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 font-body-md text-on-surface placeholder-outline transition-colors"
                                 id="phone" name="phone" type="tel" />
                         </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="flex flex-col">
                             <label class="font-label-lg text-label-lg text-on-surface-variant mb-2 uppercase"
                                 for="date">Event Date</label>
@@ -203,18 +210,19 @@
                                 class="bg-transparent border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 font-body-md text-on-surface placeholder-outline transition-colors"
                                 id="date" name="event_date" type="date" />
                         </div>
-                        <div class="flex flex-col">
-                            <label class="font-label-lg text-label-lg text-on-surface-variant mb-2 uppercase"
-                                for="type">Desired Dessert</label>
-                            <select
-                                class="bg-transparent border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 font-body-md text-on-surface transition-colors"
-                                id="type" name="product_interest">
-                                <option>Custom Cake</option>
-                                <option>Cupcake Assortment</option>
-                                <option>Dessert Box</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="font-label-lg text-label-lg text-on-surface-variant mb-2 uppercase"
+                            for="type">Desired Dessert</label>
+                        <select
+                            class="bg-transparent border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 font-body-md text-on-surface transition-colors"
+                            id="type" name="product_interest">
+                            <option>Custom Cake</option>
+                            <option>Cupcake Assortment</option>
+                            <option>Dessert Box</option>
+                            <option>Other</option>
+                        </select>
                     </div>
 
                     <div class="flex flex-col">

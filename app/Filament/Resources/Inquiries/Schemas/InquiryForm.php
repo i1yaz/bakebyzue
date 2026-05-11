@@ -15,6 +15,7 @@ class InquiryForm
     {
         return $schema->components([
             TextInput::make('name')->required(),
+            TextInput::make('email')->email(),
             TextInput::make('phone'),
             DatePicker::make('event_date'),
             TextInput::make('product_interest'),

@@ -1,6 +1,6 @@
 <!-- TopNavBar (Shared Component) -->
 <nav
-    class="docked full-width top-0 bg-transparent flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-20 z-50 absolute inset-x-0">
+    class="docked full-width top-0 bg-surface/90 backdrop-blur-md flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-20 z-50 sticky inset-x-0">
     <div class="font-headline-md text-headline-md font-bold text-primary">
         ZUE
     </div>

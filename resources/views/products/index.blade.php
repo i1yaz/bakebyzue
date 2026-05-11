@@ -2,12 +2,12 @@
     <x-slot name="title">Our Collections | ZUE Artisanal Pâtisserie</x-slot>
 
     <!-- Hero Section -->
-    <section class="relative h-[500px] flex items-center justify-center overflow-hidden curved-section-bottom bg-surface-container-low mt-[-80px]">
+    <section class="relative h-[614px] flex items-center justify-center overflow-hidden curved-section-bottom bg-surface-container-low">
         <div class="absolute inset-0 z-0">
             <img alt="Luxury Bakery Background" class="w-full h-full object-cover opacity-30 mix-blend-multiply"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPydkOOIuYSrDNPFDLx1APdodqwuhn0Y3F5MuqMMTXzRxYUzo_rzJa4DSv6CjQ5sKbc4lpu5pu4VQQgJiJovi2Rt0tLm4IZ_8p1IyxwMXiXXxhTjOsU0BrmidEhWjLt8dFl0KiUPn1MpBerjhxha3LArmi-1p8MeDOazDQg7U9Isn-BHnlIKnC1tywWGGjSdGWTyQYwRciFLbAcnQ_Jom2oiEF3R4Qn1WsGRjXPp4SG9v8wrmiSpglS5gv_SHqtFyr3iTEI0Z3vlI5" />
         </div>
-        <div class="relative z-10 text-center px-margin-mobile max-w-3xl pt-20">
+        <div class="relative z-10 text-center px-margin-mobile max-w-3xl">
             <h1 class="font-display-lg text-display-lg text-primary mb-4">
                 @if($activeCategory)
                     {{ $activeCategory->name }}
@@ -27,15 +27,15 @@
     </section>
 
     <!-- Category Filter -->
-    <section class="mt-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+    <section class="mt-20 mb-12 px-margin-mobile md:px-gutter max-w-container-max mx-auto">
         <div class="flex flex-wrap justify-center gap-4">
             <a href="{{ route('category.show') }}"
-                class="px-8 py-3 rounded-full font-label-lg text-label-lg shadow-soft transition-transform hover:scale-105 active:scale-95 {{ !$activeCategory ? 'bg-primary text-on-primary' : 'bg-surface-container-high text-on-surface-variant hover:bg-secondary-container' }}">
+                class="px-8 py-3 rounded-full font-label-lg text-label-lg ambient-shadow transition-transform hover:scale-105 active:scale-95 border {{ !$activeCategory ? 'bg-primary text-on-primary border-primary' : 'bg-surface-container-high text-on-surface-variant hover:bg-secondary-container border-outline-variant' }}">
                 All
             </a>
             @foreach($categories as $category)
                 <a href="{{ route('category.show', $category) }}"
-                    class="px-8 py-3 rounded-full font-label-lg text-label-lg transition-all hover:scale-105 active:scale-95 {{ $activeCategory && $activeCategory->id === $category->id ? 'bg-primary text-on-primary shadow-soft' : 'bg-surface-container-high text-on-surface-variant hover:bg-secondary-container' }}">
+                    class="px-8 py-3 rounded-full font-label-lg text-label-lg transition-all hover:scale-105 active:scale-95 border {{ $activeCategory && $activeCategory->id === $category->id ? 'bg-primary text-on-primary ambient-shadow border-primary' : 'bg-surface-container-high text-on-surface-variant hover:bg-secondary-container border-outline-variant' }}">
                     {{ $category->name }}
                 </a>
             @endforeach
@@ -43,12 +43,12 @@
     </section>
 
     <!-- Product Grid -->
-    <section class="my-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto min-h-[400px]">
+    <section class="mb-20 px-margin-mobile md:px-gutter max-w-container-max mx-auto min-h-[400px]">
         @if($products->count() > 0)
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                 @foreach($products as $product)
-                    <div class="group bg-surface-container-low rounded-[32px] border border-outline-variant p-4 transition-all duration-500 hover:-translate-y-2 shadow-soft">
-                        <div class="relative overflow-hidden rounded-[24px] aspect-[4/5] mb-6">
+                    <div class="group bg-surface-container-low rounded-[32px] border border-outline-variant p-4 transition-all duration-500 hover:-translate-y-2 ambient-shadow">
+                        <div class="relative overflow-hidden rounded-[24px] aspect-square mb-6">
                             @if($product->getFirstMediaUrl('featured_image'))
                                 <img alt="{{ $product->title }}"
                                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -71,7 +71,7 @@
                                     <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">auto_awesome</span>
                                 </span>
                             </div>
-                            <p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+                            <p class="font-body-sm text-body-sm text-on-surface-variant mb-4 line-clamp-2 h-10">
                                 {{ $product->short_description }}
                             </p>
                             @if($product->flavor_tags)
@@ -101,7 +101,7 @@
     </section>
 
     <!-- Bottom CTA -->
-    <section class="mt-section-padding bg-surface-container curved-section-top pt-24 pb-32">
+    <section class="mt-32 bg-surface-container curved-section-top pt-24 pb-32">
         <div class="px-margin-mobile md:px-gutter max-w-container-max mx-auto text-center">
             <div class="flex justify-center mb-6">
                 <span class="material-symbols-outlined text-primary text-5xl">spa</span>
@@ -112,13 +112,13 @@
             <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10 italic">
                 Bespoke orders require time and soul. From intimate birthdays to grand weddings, we collaborate with you to craft the flavor of your memories.
             </p>
-            <a class="inline-flex items-center gap-3 bg-primary text-on-primary font-label-lg text-label-lg px-12 py-5 rounded-full shadow-soft hover:bg-on-primary-fixed-variant transition-all hover:scale-105 active:scale-95 group"
+            <a class="inline-flex items-center gap-3 bg-primary text-on-primary font-label-lg text-label-lg px-12 py-5 rounded-full ambient-shadow hover:bg-on-primary-fixed-variant transition-all hover:scale-105 active:scale-95 group"
                 href="{{ $whatsappLink }}" target="_blank">
                 <span class="material-symbols-outlined">chat_bubble</span>
                 Inquire via WhatsApp
                 <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </a>
-            <div class="mt-16 flex justify-center gap-12 text-primary/40">
+            <div class="mt-16 pb-12 flex justify-center gap-12 text-primary/40">
                 <span class="material-symbols-outlined text-4xl">local_florist</span>
                 <span class="material-symbols-outlined text-4xl">cake</span>
                 <span class="material-symbols-outlined text-4xl">local_florist</span>
@@ -140,9 +140,6 @@
         .curved-section-top {
             border-top-left-radius: 50% 40px;
             border-top-right-radius: 50% 40px;
-        }
-        .ambient-shadow {
-            box-shadow: 0 10px 30px -5px rgba(93, 64, 55, 0.08);
         }
     </style>
     @endpush

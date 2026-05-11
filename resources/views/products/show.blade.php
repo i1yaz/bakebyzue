@@ -2,8 +2,7 @@
     <x-slot name="title">ZUE | {{ $product->title }}</x-slot>
 
     @php
-        $whatsappNumber = config('app.whatsapp_number', 'yournumber');
-        $whatsappLink = "https://wa.me/{$whatsappNumber}?text=" . urlencode("Hi ZUE! I'm interested in '{$product->title}'. Could you tell me more?");
+        $whatsappLink = whatsapp_link("Hi ZUE! I'm interested in '{$product->title}'. Could you tell me more?");
     @endphp
 
     <main>

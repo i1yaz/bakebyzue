@@ -12,11 +12,6 @@
                 $instagramLink = \App\Models\SiteSetting::where('key', 'instagram_link')->value('value') ?? 'https://www.instagram.com/bakebyzue';
             @endphp
             <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary underline decoration-dotted opacity-80 hover:opacity-100 transition-opacity" href="{{ $instagramLink }}" target="_blank">Instagram</a></li>
-            @php
-                $whatsappNumber = \App\Models\SiteSetting::where('key', 'whatsapp_number')->value('value') ?? '+923461042344';
-                $whatsappClean = preg_replace('/[^0-9]/', '', $whatsappNumber);
-                $whatsappLink = "https://wa.me/{$whatsappClean}";
-            @endphp
             <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary underline decoration-dotted opacity-80 hover:opacity-100 transition-opacity" href="{{ $whatsappLink }}" target="_blank">WhatsApp</a></li>
         </ul>
     </div>

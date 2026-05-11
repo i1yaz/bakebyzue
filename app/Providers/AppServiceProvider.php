@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,10 +22,8 @@ class AppServiceProvider extends ServiceProvider
     {
         config(['livewire.temporary_file_upload.disk' => 'local']);
 
-        \Illuminate\Support\Facades\View::composer('*', function ($view) {
-            $whatsappNumber = \App\Models\SiteSetting::where('key', 'whatsapp_number')->value('value') ?? '+923461042344';
-            $whatsappClean = preg_replace('/[^0-9]/', '', $whatsappNumber);
-            $view->with('whatsappLink', "https://wa.me/{$whatsappClean}");
+        View::composer('*', function ($view) {
+            $view->with('whatsappLink', whatsapp_link());
         });
     }
 }

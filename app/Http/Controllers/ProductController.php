@@ -50,7 +50,10 @@ class ProductController extends Controller
             ->limit(2)
             ->get();
 
-        $testimonial = Testimonial::where('featured', true)
+        $testimonial = $product->testimonials()
+            ->inRandomOrder()
+            ->first() ?? Testimonial::where('featured', true)
+            ->whereNull('product_id')
             ->inRandomOrder()
             ->first();
 

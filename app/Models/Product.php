@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Product extends Model implements \Spatie\MediaLibrary\HasMedia
+class Product extends Model implements HasMedia
 {
     use HasFactory;
-    use \Spatie\MediaLibrary\InteractsWithMedia;
+    use InteractsWithMedia;
 
     protected $guarded = [];
 
@@ -21,5 +23,10 @@ class Product extends Model implements \Spatie\MediaLibrary\HasMedia
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function testimonials()
+    {
+        return $this->hasMany(Testimonial::class);
     }
 }

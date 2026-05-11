@@ -2,7 +2,9 @@
 <footer class="bg-surface-container-low border-t border-outline-variant full-width rounded-t-[40px] mt-20">
     <div class="flex flex-col md:flex-row justify-between items-center w-full px-gutter py-section-padding max-w-container-max mx-auto gap-8">
         <div class="flex flex-col items-center md:items-start">
-            <span class="font-headline-sm text-headline-sm text-primary mb-2">ZUE</span>
+            <a href="{{ route('home') }}" class="mb-4 inline-block">
+                <img src="{{ cloud_asset('assets/logo/zue-rectangular-logo.png') }}" alt="Logo" class="h-10 opacity-90 hover:opacity-100 transition-opacity">
+            </a>
             <p class="font-body-sm text-body-sm text-on-surface-variant">© {{ date('Y') }} ZUE Home Baked Cakes. Handcrafted with Love.</p>
         </div>
         <ul class="flex flex-wrap justify-center gap-6">

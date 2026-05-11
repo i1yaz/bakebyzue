@@ -1,9 +1,9 @@
 <!-- TopNavBar (Shared Component) -->
 <nav
     class="docked full-width top-0 bg-surface/90 backdrop-blur-md flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-20 z-50 sticky inset-x-0">
-    <div class="font-headline-md text-headline-md font-bold text-primary">
-        ZUE
-    </div>
+    <a href="{{ route('home') }}" class="font-headline-md text-headline-md font-bold text-primary">
+        <img src="{{ cloud_asset('assets/logo/zue-rectangular-logo.png') }}" alt="Logo" class="h-12">
+    </a>
     <ul class="hidden md:flex items-center gap-8">
         <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300"
                 href="{{ url('/') }}#collections">Collections</a></li>

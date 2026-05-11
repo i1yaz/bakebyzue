@@ -176,6 +176,14 @@
         .soft-shadow {
             box-shadow: 0 10px 30px -10px rgba(93, 64, 55, 0.08);
         }
+                .curved-section-bottom {
+            border-bottom-left-radius: 50% 40px;
+            border-bottom-right-radius: 50% 40px;
+        }
+        .curved-section-top {
+            border-top-left-radius: 50% 40px;
+            border-top-right-radius: 50% 40px;
+        }
     </style>
     @endpush
 </x-layouts.app>

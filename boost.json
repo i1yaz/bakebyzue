@@ -1,0 +1,17 @@
+{
+    "agents": [
+        "claude_code",
+        "gemini"
+    ],
+    "cloud": false,
+    "guidelines": true,
+    "packages": [
+        "filament/filament",
+        "spatie/laravel-medialibrary"
+    ],
+    "skills": [
+        "laravel-best-practices",
+        "tailwindcss-development",
+        "medialibrary-development"
+    ]
+}

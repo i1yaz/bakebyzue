@@ -6,9 +6,17 @@
 ])
 
 @php
-    $finalTitle = ($metaTitle ? $metaTitle . ' | ' : '') . 'ZUE Home Baked Cakes';
+    // Use metaTitle prop if provided, otherwise fallback to title attribute (for backward compatibility with existing views)
+    $passedTitle = $metaTitle ?? $attributes->get('title');
+    
+    $finalTitle = $passedTitle 
+        ? (str_contains($passedTitle, 'ZUE') ? $passedTitle : $passedTitle . ' | ZUE Home Baked Cakes')
+        : 'ZUE Home Baked Cakes';
+        
     $finalDescription = $metaDescription ?? "Experience the warmth of artisanal baking at ZUE. Handcrafted cakes and desserts made with love for your special moments.";
-    $finalImage = $metaImage ?? cloud_asset('assets/logo/zue-round.jpeg');
+    
+    // Ensure we have a fallback image and it's an absolute URL
+    $finalImage = $metaImage ?: cloud_asset('assets/logo/zue-round.jpeg');
 @endphp
 
 <!DOCTYPE html>
@@ -29,6 +37,8 @@
     <meta property="og:title" content="{{ $finalTitle }}">
     <meta property="og:description" content="{{ $finalDescription }}">
     <meta property="og:image" content="{{ $finalImage }}">
+    <meta property="og:image:secure_url" content="{{ $finalImage }}">
+    <meta property="og:image:type" content="image/jpeg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">

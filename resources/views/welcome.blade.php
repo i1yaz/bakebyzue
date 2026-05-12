@@ -1,7 +1,7 @@
 <x-layouts.app meta-description="Handcrafted artisanal cakes and desserts, made with love in our home bakery. Explore our collections and let us create something beautiful for your next celebration.">
     <!-- Hero Section -->
     <header
-        class="relative min-h-[90vh] flex flex-col items-center justify-center px-margin-mobile md:px-gutter pt-20 overflow-hidden">
+        class="relative min-h-[100svh] md:min-h-[90vh] flex flex-col items-center justify-center px-margin-mobile md:px-gutter pt-12 md:pt-20 overflow-hidden">
         <div
             class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-br from-secondary-container to-transparent opacity-40 blur-3xl -z-10">
         </div>
@@ -9,22 +9,22 @@
             class="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-tl from-primary-fixed to-transparent opacity-40 blur-3xl -z-10">
         </div>
 
-        <div class="flex flex-col items-center text-center max-w-3xl mx-auto z-10 space-y-8">
-            <div class="w-64 md:w-80 h-auto mb-4">
+        <div class="flex flex-col items-center text-center max-w-3xl mx-auto z-10 space-y-6 md:space-y-8">
+            <div class="w-48 md:w-80 h-auto mb-2 md:mb-4">
                 <img alt="Zue Home Baked Cakes Logo" class="w-full h-auto object-contain"
                     src="{{ cloud_asset('assets/logo/zue-round.jpeg') }}" />
             </div>
 
-            <h1 class="font-display-lg text-display-lg text-primary max-w-2xl mx-auto leading-tight italic">
+            <h1 class="font-display-lg text-headline-lg md:text-display-lg text-primary max-w-2xl mx-auto leading-tight italic">
                 {{ $settings['hero_title'] ?? 'Handcrafted with Love.' }} <br />
                 <span class="text-on-surface not-italic">Made at Home.</span>
             </h1>
 
-            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto mt-4">
+            <p class="font-body-lg text-body-md md:text-body-lg text-on-surface-variant max-w-xl mx-auto mt-2 md:mt-4">
                 {{ $settings['hero_subtitle'] ?? "Experience the warmth of artisanal baking, where every creation is a delicate masterpiece designed to celebrate life's sweetest moments." }}
             </p>
 
-            <div class="flex flex-col sm:flex-row gap-4 mt-8 w-full sm:w-auto">
+            <div class="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8 w-full sm:w-auto">
                 <a class="inline-flex justify-center items-center px-8 py-4 bg-primary text-on-primary rounded-full font-label-lg text-label-lg uppercase tracking-wider hover:bg-surface-tint transition-all scale-100 hover:scale-105 ambient-shadow"
                     href="{{ route('category.show') }}">
                     Explore Collections

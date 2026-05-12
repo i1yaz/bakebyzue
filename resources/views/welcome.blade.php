@@ -25,11 +25,11 @@
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8 w-full sm:w-auto">
-                <a class="inline-flex justify-center items-center px-8 py-4 bg-primary text-on-primary rounded-full font-label-lg text-label-lg uppercase tracking-wider hover:bg-surface-tint transition-all scale-100 hover:scale-105 ambient-shadow"
+                <a class="inline-flex justify-center items-center px-8 py-4 bg-primary text-on-primary rounded-full font-label-lg text-label-lg uppercase hover:bg-surface-tint transition-all scale-100 hover:scale-105 ambient-shadow"
                     href="{{ route('category.show') }}">
                     Explore Collections
                 </a>
-                <a class="inline-flex justify-center items-center px-8 py-4 bg-surface border-2 border-outline-variant text-primary rounded-full font-label-lg text-label-lg uppercase tracking-wider hover:bg-surface-container transition-all scale-100 hover:scale-105"
+                <a class="inline-flex justify-center items-center px-8 py-4 bg-surface border-2 border-outline-variant text-primary rounded-full font-label-lg text-label-lg uppercase hover:bg-surface-container transition-all scale-100 hover:scale-105"
                     href="{{ $whatsappLink }}" target="_blank">
                     Order on WhatsApp
                 </a>
@@ -247,7 +247,7 @@
                     </div>
 
                     <button
-                        class="w-full bg-primary text-on-primary rounded-full py-4 font-label-lg text-label-lg uppercase tracking-widest hover:bg-surface-tint transition-all scale-100 hover:scale-102 ambient-shadow"
+                        class="w-full bg-primary text-on-primary rounded-full py-4 font-label-lg text-label-lg uppercase hover:bg-surface-tint transition-all scale-100 hover:scale-102 ambient-shadow"
                         type="submit">
                         Submit Inquiry
                     </button>

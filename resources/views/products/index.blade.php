@@ -73,8 +73,8 @@
                             <p class="font-body-sm text-body-sm text-on-surface-variant mb-4 line-clamp-2 h-10">
                                 {{ $product->short_description }}
                             </p>
-                            <div class="block w-full py-4 rounded-full bg-primary text-on-primary font-label-lg text-label-lg uppercase tracking-widest text-center transition-all hover:bg-on-primary-fixed-variant active:scale-95">
-                                Request This Design
+                            <div class="block w-full py-4 rounded-full bg-primary text-on-primary font-label-lg text-label-lg uppercase text-center transition-all hover:bg-on-primary-fixed-variant active:scale-95">
+                                View This Design
                             </div>
                         </div>
                     </a>
@@ -101,7 +101,7 @@
             <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10 italic">
                 Bespoke orders require time and soul. From intimate birthdays to grand weddings, we collaborate with you to craft the flavor of your memories.
             </p>
-            <a class="inline-flex items-center gap-3 bg-primary text-on-primary font-label-lg text-label-lg px-12 py-5 rounded-full ambient-shadow hover:bg-on-primary-fixed-variant transition-all hover:scale-105 active:scale-95 group"
+            <a class="inline-flex items-center gap-3 bg-primary text-on-primary font-label-lg text-label-lg uppercase px-12 py-5 rounded-full ambient-shadow hover:bg-on-primary-fixed-variant transition-all hover:scale-105 active:scale-95 group"
                 href="{{ $whatsappLink }}" target="_blank">
                 <span class="material-symbols-outlined">chat_bubble</span>
                 Inquire via WhatsApp

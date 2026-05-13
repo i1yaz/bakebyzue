@@ -6,6 +6,9 @@
                 <img src="{{ cloud_asset('assets/logo/zue-rectangular-logo.png') }}" alt="Logo" class="h-10 opacity-90 hover:opacity-100 transition-opacity">
             </a>
             <p class="font-body-sm text-body-sm text-on-surface-variant">© {{ date('Y') }} ZUE Home Baked Cakes. Handcrafted with Love.</p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+                Website designed by <span class="text-secondary font-bold"> <span class="text-primary">{</span> <a href="https://wa.me/923137809469" class="hover:underline">Muhammad Ilyas</a> <span class="text-primary">}</span></span>
+            </p>
         </div>
         <ul class="flex flex-wrap justify-center gap-6">
             <li><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary underline decoration-dotted opacity-80 hover:opacity-100 transition-opacity" href="{{ url('/') }}#inquiry">Contact Us</a></li>

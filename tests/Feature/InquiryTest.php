@@ -6,6 +6,7 @@ use App\Mail\InquiryAcknowledgement;
 use App\Models\Inquiry;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
@@ -17,6 +18,9 @@ class InquiryTest extends TestCase
     public function test_can_submit_inquiry_with_image()
     {
         Storage::fake('public');
+        Http::fake([
+            'https://challenges.cloudflare.com/turnstile/v0/siteverify' => Http::response(['success' => true]),
+        ]);
 
         $file = UploadedFile::fake()->image('cake.jpg');
 
@@ -27,6 +31,7 @@ class InquiryTest extends TestCase
             'product_interest' => 'Custom Cake',
             'message' => 'I want a beautiful cake.',
             'image' => $file,
+            'cf-turnstile-response' => 'fake-token',
         ]);
 
         $response->assertRedirect();
@@ -73,11 +78,15 @@ class InquiryTest extends TestCase
     public function test_sends_acknowledgement_email_if_email_provided()
     {
         Mail::fake();
+        Http::fake([
+            'https://challenges.cloudflare.com/turnstile/v0/siteverify' => Http::response(['success' => true]),
+        ]);
 
         $this->post(route('inquiry.store'), [
             'name' => 'John Doe',
             'email' => 'john@example.com',
             'message' => 'I want a cake.',
+            'cf-turnstile-response' => 'fake-token',
         ]);
 
         Mail::assertSent(InquiryAcknowledgement::class, function ($mail) {
@@ -89,15 +98,35 @@ class InquiryTest extends TestCase
     {
         Mail::shouldReceive('to->send')
             ->andThrow(new \Exception('Mail server down'));
+        Http::fake([
+            'https://challenges.cloudflare.com/turnstile/v0/siteverify' => Http::response(['success' => true]),
+        ]);
 
         $response = $this->post(route('inquiry.store'), [
             'name' => 'John Doe',
             'email' => 'john@example.com',
             'message' => 'I want a cake.',
+            'cf-turnstile-response' => 'fake-token',
         ]);
 
         $response->assertRedirect();
         $response->assertSessionHas('success');
         $this->assertDatabaseHas('inquiries', ['name' => 'John Doe']);
+    }
+
+    public function test_fails_if_turnstile_verification_fails()
+    {
+        Http::fake([
+            'https://challenges.cloudflare.com/turnstile/v0/siteverify' => Http::response(['success' => false]),
+        ]);
+
+        $response = $this->post(route('inquiry.store'), [
+            'name' => 'John Doe',
+            'message' => 'I want a cake.',
+            'cf-turnstile-response' => 'invalid-token',
+        ]);
+
+        $response->assertSessionHasErrors('cf-turnstile-response');
+        $this->assertDatabaseCount('inquiries', 0);
     }
 }

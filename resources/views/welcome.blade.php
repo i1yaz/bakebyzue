@@ -246,6 +246,11 @@
                             rows="4"></textarea>
                     </div>
 
+                    <div class="cf-turnstile" data-sitekey="{{ config('services.turnstile.key') }}" data-theme="light"></div>
+                    @error('cf-turnstile-response')
+                        <p class="text-error text-body-sm mt-1">{{ $message }}</p>
+                    @enderror
+
                     <button
                         class="w-full bg-primary text-on-primary rounded-full py-4 font-label-lg text-label-lg uppercase hover:bg-surface-tint transition-all scale-100 hover:scale-102 ambient-shadow"
                         type="submit">
@@ -256,3 +261,15 @@
         </div>
     </section>
 </x-layouts.app>
+@push('scripts')
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
+    <script>
+        window.onload = function() {
+            if (typeof turnstile === 'undefined') {
+                console.error('Turnstile script failed to load.');
+            } else {
+                console.log('Turnstile is ready.');
+            }
+        };
+    </script>
+@endpush

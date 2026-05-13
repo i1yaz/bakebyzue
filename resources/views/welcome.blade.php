@@ -1,7 +1,7 @@
 <x-layouts.app meta-description="Handcrafted artisanal cakes and desserts, made with love in our home bakery. Explore our collections and let us create something beautiful for your next celebration.">
     <!-- Hero Section -->
     <header
-        class="relative min-h-[100svh] md:min-h-[90vh] flex flex-col items-center justify-center px-margin-mobile md:px-gutter pt-12 md:pt-20 overflow-hidden">
+        class="relative min-h-[100svh] md:min-h-[90vh] flex flex-col items-center justify-center px-margin-mobile md:px-gutter pt-12 md:pt-20 pb-12 md:pb-20 overflow-hidden">
         <div
             class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-br from-secondary-container to-transparent opacity-40 blur-3xl -z-10">
         </div>

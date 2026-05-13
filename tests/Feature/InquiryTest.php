@@ -2,9 +2,11 @@
 
 namespace Tests\Feature;
 
+use App\Mail\InquiryAcknowledgement;
 use App\Models\Inquiry;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
@@ -66,5 +68,36 @@ class InquiryTest extends TestCase
 
         $response->assertSessionHasErrors('image');
         $this->assertDatabaseCount('inquiries', 0);
+    }
+
+    public function test_sends_acknowledgement_email_if_email_provided()
+    {
+        Mail::fake();
+
+        $this->post(route('inquiry.store'), [
+            'name' => 'John Doe',
+            'email' => 'john@example.com',
+            'message' => 'I want a cake.',
+        ]);
+
+        Mail::assertSent(InquiryAcknowledgement::class, function ($mail) {
+            return $mail->hasTo('john@example.com');
+        });
+    }
+
+    public function test_handles_email_failure_gracefully()
+    {
+        Mail::shouldReceive('to->send')
+            ->andThrow(new \Exception('Mail server down'));
+
+        $response = $this->post(route('inquiry.store'), [
+            'name' => 'John Doe',
+            'email' => 'john@example.com',
+            'message' => 'I want a cake.',
+        ]);
+
+        $response->assertRedirect();
+        $response->assertSessionHas('success');
+        $this->assertDatabaseHas('inquiries', ['name' => 'John Doe']);
     }
 }

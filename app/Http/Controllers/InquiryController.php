@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\InquiryAcknowledgement;
 use App\Models\Inquiry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class InquiryController extends Controller
 {
@@ -25,6 +28,14 @@ class InquiryController extends Controller
         if ($request->hasFile('image')) {
             $inquiry->addMediaFromRequest('image')
                 ->toMediaCollection('picture');
+        }
+
+        if ($inquiry->email) {
+            try {
+                Mail::to($inquiry->email)->send(new InquiryAcknowledgement($inquiry));
+            } catch (\Exception $e) {
+                Log::error('Failed to send inquiry acknowledgement email: '.$e->getMessage());
+            }
         }
 
         return back()->with('success', 'Thank you for your inquiry! We will get back to you soon.');
